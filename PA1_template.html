@@ -266,8 +266,9 @@ With NA’s remaining 9354.23 and 10395</p>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
-<p>factor variable in the dataset with two levels weekday and weekend indicating whether a given date is a weekday or weekend day.</p>
-<pre class="r"><code>activity_data[, date := as.POSIXct(date, format = &quot;%Y-%m-%d&quot;)]
+<p>Factor variable in the dataset with two levels weekday and weekend indicating whether a given date is a weekday or weekend day. Made using NA filled data</p>
+<pre class="r"><code>activity_data &lt;- fread(input = &quot;newdata.csv&quot;)
+activity_data[, date := as.POSIXct(date, format = &quot;%Y-%m-%d&quot;)]
 activity_data[, `Day of Week`:= weekdays(x = date)]
 activity_data[grepl(pattern = &quot;Monday|Tuesday|Wednesday|Thursday|Friday&quot;, x = `Day of Week`), &quot;weekday or weekend&quot;] &lt;- &quot;weekday&quot;
 activity_data[grepl(pattern = &quot;Saturday|Sunday&quot;, x = `Day of Week`), &quot;weekday or weekend&quot;] &lt;- &quot;weekend&quot;

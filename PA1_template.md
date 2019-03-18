@@ -163,10 +163,11 @@ With NA's remaining  9354.23 and 10395
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-factor variable in the dataset with two levels weekday and weekend indicating whether a given date is a weekday or weekend day.
+Factor variable in the dataset with two levels weekday and weekend indicating whether a given date is a weekday or weekend day. Made using NA filled data
 
 
 ```r
+activity_data <- fread(input = "newdata.csv")
 activity_data[, date := as.POSIXct(date, format = "%Y-%m-%d")]
 activity_data[, `Day of Week`:= weekdays(x = date)]
 activity_data[grepl(pattern = "Monday|Tuesday|Wednesday|Thursday|Friday", x = `Day of Week`), "weekday or weekend"] <- "weekday"
