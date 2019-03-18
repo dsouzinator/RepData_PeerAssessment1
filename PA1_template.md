@@ -66,7 +66,7 @@ ggplot(steps, aes(x = steps)) + geom_histogram(fill = "red", binwidth = 1000) + 
 ## Warning: Removed 8 rows containing non-finite values (stat_bin).
 ```
 
-![](myfile_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 Mean and median of the total number of steps taken per day  
   
@@ -91,7 +91,7 @@ intervals <- activity_data[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("st
 ggplot(intervals, aes(x = interval , y = steps)) + geom_line(color="blue", size=1) + labs(title = "average daily steps", x = "Interval", y = "average steps a day")
 ```
 
-![](myfile_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 the 5-minute interval, on average across all the days in the dataset, that contains the maximum number of steps
 
@@ -154,7 +154,7 @@ steps[, .(Mean_Steps = mean(steps), Median_Steps = median(steps))]
 ggplot(steps, aes(x = steps)) + geom_histogram(fill = "green", binwidth = 1000) + labs(title = "Daily Steps", x = "Steps", y = "Frequency")
 ```
 
-![](myfile_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
  Mean_Steps and  Median_Steps
 
@@ -193,4 +193,4 @@ Intervals <- activity_data[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("st
 ggplot(Intervals , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "daily steps by type of week", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
 ```
 
-![](myfile_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
